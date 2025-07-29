@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: nodejs-dev-x1
+  links:
+    - url: https://openshift-gitops-server-openshift-gitops.apps.rosa.sb1237-rosa.b20c.p3.openshiftapps.com/applications/openshift-gitops/nodejs-dev-x1-dev
+      title: ArgoCD
+      icon: dashboard
+    - url: https://nodejs-dev-x1-nodejs-dev-x1.apps.rosa.sb1237-rosa.b20c.p3.openshiftapps.com
+      title: Application
+      icon: dashboard
+    - url: https://github.com/rhdh-skitamura-org/nodejs-dev-x1-app
+      title: App Repository
+      icon: dashboard
+    - url: https://github.com/rhdh-skitamura-org/nodejs-dev-x1-manifest
+      title: Manifest Repository
+    - url: https://devspaces.apps.rosa.sb1237-rosa.b20c.p3.openshiftapps.com/#https://github.com/rhdh-skitamura-org/nodejs-dev-x1-app
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+    - url: https://console-openshift-console.apps.rosa.sb1237-rosa.b20c.p3.openshiftapps.com/k8s/ns/nodejs-dev-x1/tekton.dev~v1~Pipeline/nodejs-dev-x1-pipeline
+      title: Tekton Pipelines
+      icon: dashboard
+  annotations:
+    janus-idp.io/tekton: nodejs-dev-x1
+    janus-idp.io/tekton-enabled: "true"
+    github.com/project-slug: rhdh-skitamura-org/nodejs-dev-x1-app
+    quay.io/repository-slug: skitamura-quay-org/nodejs-dev-x1/nodejs-dev-x1
+    argocd/app-selector: argocd.argoproj.io/instance=nodejs-dev-x1-bootstrap
+    tektonci/build-namespace: nodejs-dev-x1
+    backstage.io/kubernetes-id: nodejs-dev-x1
+    backstage.io/kubernetes-namespace: nodejs-dev-x1
+    backstage.io/techdocs-ref: url:https://github.com/rhdh-skitamura-org/rhdh-nodejs-goldenpath
+    sonarqube.org/project-key: nodejs-dev-x1
+    jira/project-key: SMS
+    backstage.io/createdAt: 7/29/2025, 12:33:31 AM
+  labels: {}
+spec:
+  type: service
+  system: system:default/test-system-github
+  lifecycle: production
+  owner: user:default/skitamura7446
+  git: github
+  git_host_url: github.com
+  git_owner_name: rhdh-skitamura-org
+  providesApis:
+    - nodejs-dev-x1-api
